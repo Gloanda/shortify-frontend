@@ -7,12 +7,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LinkIcon, LogOut } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState(false);
 
   return (
@@ -23,7 +25,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-4">
           {!user ? (
-            <Button onClick={() => setUser(true)}>Login</Button>
+            <Button onClick={() => navigate("/auth")}>Login</Button>
           ) : (
             <DropdownMenu>
               <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
