@@ -1,5 +1,6 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import UrlProvider from "./context";
 
 import AppLayout from "./layouts/AppLayout";
 
@@ -23,11 +24,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <Dashboard />
+        ),
       },
       {
         path: "/link/:id",
-        element: <LinkPage />,
+        element: (
+          <LinkPage />
+        ),
       },
       {
         path: "/:id",
@@ -38,7 +43,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UrlProvider>
+      <RouterProvider router={router} />
+    </UrlProvider>
+  );
 }
 
 export default App;
