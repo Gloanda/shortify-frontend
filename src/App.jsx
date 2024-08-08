@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import LinkPage from "./pages/LinkPage";
 import Auth from "./pages/Auth";
+import RequireAuth from "./components/requireAuth";
 
 const router = createBrowserRouter([
   {
@@ -25,13 +26,17 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: (
-          <Dashboard />
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
         ),
       },
       {
         path: "/link/:id",
         element: (
-          <LinkPage />
+          <RequireAuth>
+            <LinkPage />
+          </RequireAuth>
         ),
       },
       {
