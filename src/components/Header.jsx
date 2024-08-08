@@ -6,16 +6,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { logout } from "@/utils/apiAuth";
+import useFetch from "@/hooks/useFetch";
 import { LinkIcon, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useState } from "react";
+import { BarLoader } from "react-spinners";
+import { UrlState } from "@/Context";
 
 const Header = () => {
+  const { loading, fn: fnLogout } = useFetch(logout);
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(false);
+  const {user, fetchUser} = UrlState();
 
   return (
     <>
@@ -45,7 +49,10 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
-                    setUser(false);
+                    fnLogout().then(() => {
+                      fetchUser();
+                      navigate("/auth");
+                    });
                   }}
                   className="text-red-400"
                 >
@@ -57,6 +64,7 @@ const Header = () => {
           )}
         </div>
       </nav>
+      {loading && <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />}
     </>
   );
 };
