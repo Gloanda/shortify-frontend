@@ -13,13 +13,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BarLoader } from "react-spinners";
-import { UrlState } from "@/Context";
+import { UrlState } from "@/context";
 
 const Header = () => {
   const { loading, fn: fnLogout } = useFetch(logout);
   const navigate = useNavigate();
 
-  const {user, fetchUser} = UrlState();
+  const { user, fetchUser } = UrlState();
 
   return (
     <>
@@ -35,7 +35,9 @@ const Header = () => {
               <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
                 <Avatar>
                   <AvatarImage src={user.user_metadata?.profile_pic} />
-                  <AvatarFallback>{user.user_metadata?.name?.charAt(0)}</AvatarFallback>
+                  <AvatarFallback>
+                    {user.user_metadata?.name?.charAt(0)}
+                  </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>

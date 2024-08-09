@@ -2,7 +2,7 @@ import DeviceStats from "@/components/DeviceStats";
 import Location from "@/components/LocationStats";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { UrlState } from "@/Context";
+import { UrlState } from "@/context";
 import { getClicksForUrl } from "@/utils/apiClicks";
 import { deleteUrl, getUrl } from "@/utils/apiUrls";
 import useFetch from "@/hooks/useFetch";
