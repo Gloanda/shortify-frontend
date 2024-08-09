@@ -34,12 +34,14 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarImage src={user.user_metadata?.profile_pic} />
+                  <AvatarFallback>{user.user_metadata?.name?.charAt(0)}</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>Loanda Gunawan</DropdownMenuLabel>
+                <DropdownMenuLabel>
+                  {user.user_metadata?.name}
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link to="/dashboard" className="flex">
