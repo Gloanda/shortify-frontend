@@ -1,6 +1,4 @@
-import supabase from "./supabase";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+import supabase, {supabaseUrl} from "./supabase";
 
 export async function login({ email, password }) {
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
