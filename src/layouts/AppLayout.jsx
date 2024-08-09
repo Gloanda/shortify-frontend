@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+
 import Header from "@/components/Header";
 
 const AppLayout = () => {
@@ -8,9 +9,7 @@ const AppLayout = () => {
         <Header />
         <Outlet />
       </main>
-      <div className="p-10 text-center bg-gray-800 mt-10">
-        Made by Gloanda
-      </div>
+      <div className="p-10 text-center bg-gray-800 mt-10">Made by Gloanda</div>
     </div>
   );
 };

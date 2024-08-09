@@ -1,9 +1,10 @@
+import { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
 import Login from "@/components/Login";
 import Signup from "@/components/Signup";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UrlState } from "@/context";
-import { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Auth() {
   let [searchParams] = useSearchParams();

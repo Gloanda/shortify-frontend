@@ -1,9 +1,10 @@
-import { storeClicks } from "@/utils/apiClicks";
-import { getLongUrl } from "@/utils/apiUrls";
-import useFetch from "@/hooks/useFetch";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
+
+import useFetch from "@/hooks/useFetch";
+import { storeClicks } from "@/utils/apiClicks";
+import { getLongUrl } from "@/utils/apiUrls";
 
 const RedirectLink = () => {
   const { id } = useParams();

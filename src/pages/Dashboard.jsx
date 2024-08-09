@@ -1,20 +1,18 @@
 // can add sonner from shadcn ui after link created
+import { Filter } from "lucide-react";
 
 import { useEffect, useState } from "react";
 import { BarLoader } from "react-spinners";
-import { Filter } from "lucide-react";
 
+import { CreateLink } from "@/components/CreateLink";
+import Error from "@/components/Error";
+import LinkCard from "@/components/LinkCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { CreateLink } from "@/components/CreateLink";
-import LinkCard from "@/components/LinkCard";
-import Error from "@/components/Error";
-
-import useFetch from "@/hooks/useFetch";
-
-import { getUrls } from "@/utils/apiUrls";
-import { getClicksForUrls } from "@/utils/apiClicks";
 import { UrlState } from "@/context";
+import useFetch from "@/hooks/useFetch";
+import { getClicksForUrls } from "@/utils/apiClicks";
+import { getUrls } from "@/utils/apiUrls";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,7 +24,7 @@ const Dashboard = () => {
     fn: fnClicks,
   } = useFetch(
     getClicksForUrls,
-    urls?.map((url) => url.id)
+    urls?.map((url) => url.id),
   );
 
   useEffect(() => {
@@ -34,7 +32,7 @@ const Dashboard = () => {
   }, []);
 
   const filteredUrls = urls?.filter((url) =>
-    url.title.toLowerCase().includes(searchQuery.toLowerCase())
+    url.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   useEffect(() => {

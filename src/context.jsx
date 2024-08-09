@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-
 import { createContext, useContext, useEffect } from "react";
-import { getCurrentUser } from "./utils/apiAuth";
+
 import useFetch from "./hooks/useFetch";
+import { getCurrentUser } from "./utils/apiAuth";
 
 const UrlContext = createContext();
 

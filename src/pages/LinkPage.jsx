@@ -1,15 +1,17 @@
+import { Copy, Download, LinkIcon, Trash } from "lucide-react";
+
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { BarLoader, BeatLoader } from "react-spinners";
+
 import DeviceStats from "@/components/DeviceStats";
 import Location from "@/components/LocationStats";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { UrlState } from "@/context";
+import useFetch from "@/hooks/useFetch";
 import { getClicksForUrl } from "@/utils/apiClicks";
 import { deleteUrl, getUrl } from "@/utils/apiUrls";
-import useFetch from "@/hooks/useFetch";
-import { Copy, Download, LinkIcon, Trash } from "lucide-react";
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { BarLoader, BeatLoader } from "react-spinners";
 
 const LinkPage = () => {
   const downloadImage = () => {

@@ -1,3 +1,10 @@
+import { LinkIcon, LogOut } from "lucide-react";
+
+import { Link, useNavigate } from "react-router-dom";
+import { BarLoader } from "react-spinners";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,14 +13,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { logout } from "@/utils/apiAuth";
-import useFetch from "@/hooks/useFetch";
-import { LinkIcon, LogOut } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { BarLoader } from "react-spinners";
 import { UrlState } from "@/context";
+import useFetch from "@/hooks/useFetch";
+import { logout } from "@/utils/apiAuth";
 
 const Header = () => {
   const { loading, fn: fnLogout } = useFetch(logout);

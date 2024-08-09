@@ -1,3 +1,10 @@
+import * as yup from "yup";
+
+import { useEffect, useRef, useState } from "react";
+import { QRCode } from "react-qrcode-logo";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,16 +15,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Card } from "./ui/card";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import Error from "./Error";
-import * as yup from "yup";
+import { UrlState } from "@/context";
 import useFetch from "@/hooks/useFetch";
 import { createUrl } from "@/utils/apiUrls";
-import { BeatLoader } from "react-spinners";
-import { UrlState } from "@/context";
-import { QRCode } from "react-qrcode-logo";
+
+import Error from "./Error";
+import { Card } from "./ui/card";
 
 export function CreateLink() {
   const { user } = UrlState();

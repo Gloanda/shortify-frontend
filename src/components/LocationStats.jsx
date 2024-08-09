@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import {
-  LineChart,
+  Legend,
   Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from "recharts";
 
 export default function Location({ stats = [] }) {

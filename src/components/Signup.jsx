@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
-import Error from "./error";
-import { Input } from "./ui/input";
 import * as Yup from "yup";
+
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
+
+import useFetch from "@/hooks/useFetch";
+import { signup } from "@/utils/apiAuth";
+
+import Error from "./Error";
+import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
@@ -10,11 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Button } from "./ui/button";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { signup } from "@/utils/apiAuth";
-import { BeatLoader } from "react-spinners";
-import useFetch from "@/hooks/useFetch";
+import { Input } from "./ui/input";
 
 const Signup = () => {
   let [searchParams] = useSearchParams();
